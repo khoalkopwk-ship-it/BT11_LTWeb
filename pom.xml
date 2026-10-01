@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+         http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!-- Project Information -->
+    <groupId>vn.iotstar</groupId>
+
+    <artifactId>DE03_LTW</artifactId>
+
+    <version>1.0</version>
+
+    <packaging>war</packaging>
+
+
+
+    <properties>
+
+        <maven.compiler.source>17</maven.compiler.source>
+
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <project.build.sourceEncoding>
+            UTF-8
+        </project.build.sourceEncoding>
+
+    </properties>
+
+
+
+    <dependencies>
+
+
+        <!-- ========================= -->
+        <!-- Servlet API -->
+        <!-- ========================= -->
+
+        <dependency>
+
+            <groupId>jakarta.servlet</groupId>
+
+            <artifactId>jakarta.servlet-api</artifactId>
+
+            <!-- Tomcat 11 implements Servlet 6.1. -->
+            <version>6.1.0</version>
+
+            <scope>provided</scope>
+
+        </dependency>
+
+
+
+        <!-- ========================= -->
+        <!-- JSP API -->
+        <!-- ========================= -->
+
+        <dependency>
+
+            <groupId>jakarta.servlet.jsp</groupId>
+
+            <artifactId>jakarta.servlet.jsp-api</artifactId>
+
+            <!-- Tomcat 11 implements JSP 4.0. -->
+            <version>4.0.0</version>
+
+            <scope>provided</scope>
+
+        </dependency>
+
+
+
+
+        <!-- ========================= -->
+        <!-- JSTL -->
+        <!-- ========================= -->
+
+        <dependency>
+
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+
+            <artifactId>
+                jakarta.servlet.jsp.jstl-api
+            </artifactId>
+
+            <version>3.0.2</version>
+
+        </dependency>
+
+
+
+        <dependency>
+
+            <groupId>org.glassfish.web</groupId>
+
+            <artifactId>
+                jakarta.servlet.jsp.jstl
+            </artifactId>
+
+            <version>3.0.1</version>
+
+        </dependency>
+
+
+
+
+        <!-- ========================= -->
+        <!-- JPA Hibernate -->
+        <!-- ========================= -->
+
+
+        <dependency>
+
+            <groupId>org.hibernate.orm</groupId>
+
+            <artifactId>hibernate-core</artifactId>
+
+            <version>6.6.1.Final</version>
+
+        </dependency>
+
+
+
+        <!-- ========================= -->
+        <!-- SQL Server JDBC -->
+        <!-- ========================= -->
+
+
+        <dependency>
+
+            <groupId>
+                com.microsoft.sqlserver
+            </groupId>
+
+            <artifactId>
+                mssql-jdbc
+            </artifactId>
+
+            <version>12.8.1.jre11</version>
+
+        </dependency>
+
+
+
+
+        <!-- ========================= -->
+        <!-- SiteMesh Decorator -->
+        <!-- ========================= -->
+
+
+        <dependency>
+
+            <groupId>org.sitemesh</groupId>
+
+            <artifactId>sitemesh</artifactId>
+
+            <version>3.3.0-RC1</version>
+
+        </dependency>
+
+
+
+
+        <!-- ========================= -->
+        <!-- Jakarta Mail OTP -->
+        <!-- ========================= -->
+
+
+        <dependency>
+
+            <groupId>com.sun.mail</groupId>
+
+            <artifactId>jakarta.mail</artifactId>
+
+            <version>2.0.1</version>
+
+        </dependency>
+
+
+
+
+        <!-- ========================= -->
+        <!-- Testing (Optional) -->
+        <!-- ========================= -->
+
+        <dependency>
+
+            <groupId>org.junit.jupiter</groupId>
+
+            <artifactId>junit-jupiter</artifactId>
+
+            <version>5.11.0</version>
+
+            <scope>test</scope>
+
+        </dependency>
+
+
+        <!-- Chỉ dùng cho kiểm thử; không đóng gói vào ROOT.war. -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.3.232</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>11.0.25</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+
+
+
+    <build>
+
+
+        <!-- Deploy ROOT.war để dùng http://localhost:8080/login -->
+        <finalName>ROOT</finalName>
+
+
+
+        <plugins>
+
+
+            <!-- WAR Build -->
+
+            <plugin>
+
+                <groupId>
+                    org.apache.maven.plugins
+                </groupId>
+
+
+                <artifactId>
+                    maven-war-plugin
+                </artifactId>
+
+
+                <version>3.4.0</version>
+
+
+            </plugin>
+
+
+
+
+            <!-- Java Compiler -->
+
+            <plugin>
+
+                <groupId>
+                    org.apache.maven.plugins
+                </groupId>
+
+
+                <artifactId>
+                    maven-compiler-plugin
+                </artifactId>
+
+
+                <version>3.13.0</version>
+
+
+                <configuration>
+
+                    <release>17</release>
+
+                </configuration>
+
+
+            </plugin>
+
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.0</version>
+            </plugin>
+        </plugins>
+
+
+
+    </build>
+
+
+
+</project>
